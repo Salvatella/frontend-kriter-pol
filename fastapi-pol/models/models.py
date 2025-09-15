@@ -1,4 +1,4 @@
-from git import Optional
+from typing import Optional
 from pydantic import BaseModel
 
 
@@ -6,14 +6,12 @@ class Task(BaseModel):
     id: int
     title: str
     description: str
-    completed: bool = False
-
+    completed: bool = False   
 
 class Label(BaseModel):
     id: int  # id maxim 1 2 o 3 personal project community
     name: str
     color: str
-
 
 class Note(BaseModel):
     id: int
@@ -27,56 +25,55 @@ class Note(BaseModel):
     notebook_number: int
     reminder: bool = False
 
-
 # Labels lookup
 fake_db_labels = [
-    {"id": 1, "name": "Personal",  "color": "#10b98133"},
+    {"id": 1, "name": "Personal",  "color": "#10b98125"},
     {"id": 2, "name": "Project",   "color": "#f59f0b29"},
     {"id": 3, "name": "LGTBIQ+", "color": "#9B48B02A"},
-    {"id": 4, "name": "Kriter",    "color": "#2E71EE4C"},
-    {"id": 5, "name": "Community", "color": "#EF3C6C41"},
+    {"id": 4, "name": "Kriter",    "color": "#5B8DE927"},
+    {"id": 5, "name": "Community", "color": "#EF3C6C28"},
     {"id": 6, "name": "AI",        "color": "#D6E7573F"},
-
+    {"id": 7, "name": "Stop Asian Hate", "color": "#FFFF0020"},
 ]
 
 # Tasks lookup (you could also inline these in each note)
 fake_db_tasks = [
     {"id":  1, "title": "Prepare brainstorming questions",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id":  2, "title": "Draft session outline",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id":  3, "title": "Summarize key takeaways",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id":  4, "title": "Meet with business owner",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id":  5, "title": "Identify improvement areas",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id":  6, "title": "Draft recommendation report",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id":  7, "title": "Compile weekly metrics",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id":  8, "title": "Draft update slides",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id":  9, "title": "Schedule team meeting",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id": 10, "title": "Analyze current workflow",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id": 11, "title": "Identify bottlenecks",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id": 12, "title": "Implement automation scripts",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id": 13, "title": "Review client agenda",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id": 14, "title": "Record meeting minutes",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id": 15, "title": "Send follow-up email",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id": 16, "title": "Backup database",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id": 17, "title": "Update documentation",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
     {"id": 18, "title": "Plan next sprint",
-        "description": "", "completed": False},
+        "description": "", "completed": True},
 ]
 
 
@@ -87,7 +84,7 @@ fake_db = {
             "title": "Brainstorming Session Highlight...",
             "content": "Capture your team's best ideas he...",
             "link": "https://www.wikipedia.org",
-            "tasks": [fake_db_tasks[0], fake_db_tasks[1], fake_db_tasks[2]],
+            "tasks": [fake_db_tasks[0], fake_db_tasks[1], fake_db_tasks[2], fake_db_tasks[17]],
             "img": "./imgs/hab.jpg",
             # Personal, Project, Community
             "labels": [fake_db_labels[0], fake_db_labels[1], fake_db_labels[4]],
@@ -95,12 +92,13 @@ fake_db = {
             "notebook_number": 1,
             "reminder": True
         },
+
         {
             "id": 2,
             "title": "Helping a local business",
             "content": "Amet minim mollit non deserunt il...",
             "link": "https://www.google.com",
-            "tasks": [fake_db_tasks[3], fake_db_tasks[4], fake_db_tasks[5]],
+            "tasks": [fake_db_tasks[3], fake_db_tasks[4]],
             "img": "./imgs/hab1.jpg",
             # Project, Kriter
             "labels": [fake_db_labels[1], fake_db_labels[3]],
@@ -165,7 +163,10 @@ fake_db = {
             "link": "https://example.com",
             "tasks": [],
             "img": "./imgs/hab.jpg",
-            "labels": [fake_db_labels[3]],  # Kriter
+            "labels": [
+                fake_db_labels[3],  # Kriter
+                fake_db_labels[6]   # added Stop Asian Hate
+            ],
             "last_modified": "01:15 PM",
             "notebook_number": 1,
             "reminder": False
@@ -177,10 +178,19 @@ fake_db = {
             "link": "https://example.com",
             "tasks": [],
             "img": "./imgs/hab.jpg",
-            "labels": [fake_db_labels[0], fake_db_labels[1], fake_db_labels[2], fake_db_labels[3], fake_db_labels[4], fake_db_labels[5]],  # Community, AI
+            "labels": [
+                fake_db_labels[0],
+                fake_db_labels[1],
+                fake_db_labels[2],
+                fake_db_labels[3],
+                fake_db_labels[4],
+                fake_db_labels[5],
+                fake_db_labels[6]  # added Stop Asian Hate
+            ],
             "last_modified": "02:30 PM",
             "notebook_number": 1,
             "reminder": False
         }
-    ]
+    ],
+    "tasks": fake_db_tasks
 }

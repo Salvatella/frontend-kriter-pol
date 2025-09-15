@@ -1,0 +1,9 @@
+-fer persistent els checkbox (metode post)
+
+    -FER METODE FASTAPI post
+    -AL JS AFEGIR LISTENER ALS CHECKBOX QUE FAGIN
+    EL FETCH DIRECTAMENT
+    -gestionar color dels checks
+    -gestionar que els les tasks que estiguin completed 
+    es quedin checked
+    -ACTUALITZAR LA DB DE TASKS NO DE NOTES!!!!
