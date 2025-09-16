@@ -24,6 +24,7 @@ class Note(BaseModel):
     last_modified: str
     notebook_number: int
     reminder: bool = False
+   
 
 # Labels lookup
 fake_db_labels = [
@@ -39,15 +40,15 @@ fake_db_labels = [
 # Tasks lookup (you could also inline these in each note)
 fake_db_tasks = [
     {"id":  1, "title": "Prepare brainstorming questions",
-        "description": "", "completed": True},
+        "description": "", "completed": False},
     {"id":  2, "title": "Draft session outline",
-        "description": "", "completed": True},
+        "description": "", "completed": False},
     {"id":  3, "title": "Summarize key takeaways",
-        "description": "", "completed": True},
+        "description": "", "completed": False},
     {"id":  4, "title": "Meet with business owner",
-        "description": "", "completed": True},
+        "description": "", "completed": False},
     {"id":  5, "title": "Identify improvement areas",
-        "description": "", "completed": True},
+        "description": "", "completed": False},
     {"id":  6, "title": "Draft recommendation report",
         "description": "", "completed": True},
     {"id":  7, "title": "Compile weekly metrics",
@@ -74,6 +75,8 @@ fake_db_tasks = [
         "description": "", "completed": True},
     {"id": 18, "title": "Plan next sprint",
         "description": "", "completed": True},
+    {"id": 19, "title": "New Task 1",
+        "description": "", "completed": False},
 ]
 
 
@@ -191,6 +194,6 @@ fake_db = {
             "notebook_number": 1,
             "reminder": False
         }
-    ],
-    "tasks": fake_db_tasks
+    ]
+    
 }
