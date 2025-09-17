@@ -1,6 +1,11 @@
+-fer la funcionalitat de actualitzar les taskes ckecked junt amb la hora(await.(fetch))
 
--fer persistent la hora de les notes atribut lastedited (metode post)
-
-    -fer el post al FASTAPI url...
-    -metode desde javascript per enviar la data actual sysdate
-    -
+    -cambiar el tros de codi de posar el color a la taska
+     feta, a posar el checked****************
+    
+    
+    -eliminar el post de la hora, last_edited i 
+    implementar la funcionalitat al post de la task check***************************
+   
+   
+    -modificar el metode de javascript usant el await.fetch(). fer diagrama de timings
