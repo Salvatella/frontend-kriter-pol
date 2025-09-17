@@ -1,17 +1,6 @@
--fer persistent els checkbox (metode post)
 
-    -fer que sactualitzi el article perque 
-     actutualitzi el checked or unchecked al moment
+-fer persistent la hora de les notes atribut lastedited (metode post)
 
-    -FER METODE FASTAPI post***************
-    
-    -AL JS AFEGIR LISTENER ALS CHECKBOX QUE FAGIN
-    EL FETCH DIRECTAMENT**************
-
-    -gestionar color dels checks*********************
-
-    -gestionar que els les tasks que estiguin completed 
-    es quedin checked**************
-
-    -ACTUALITZAR LA DB DE TASKS NO DE NOTES!!!!******
-    ********************
+    -fer el post al FASTAPI url...
+    -metode desde javascript per enviar la data actual sysdate
+    -
